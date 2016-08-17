@@ -21,8 +21,8 @@ MainContentComponent::MainContentComponent()
     addAndMakeVisible (triangle);
     addAndMakeVisible (square);
     
-    lafBox.addItem ("Flat", lafBox.getNumItems() + 1);
-    lafBox.addItem ("Outlines", lafBox.getNumItems() + 1);
+    lafBox.addItemList ((**sharedLookAndFeel).getLookAndFeelNames(), 1);
+    lafBox.setSelectedItemIndex ((**sharedLookAndFeel).getCurrentLookAndFeelIndex());
     lafBox.addListener (this);
     addAndMakeVisible (lafBox);
 }

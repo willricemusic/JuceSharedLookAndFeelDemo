@@ -11,9 +11,12 @@
 #include "SharedLookAndFeel.h"
 #include "LookAndFeel.h"
 
-SharedLookAndFeel::SharedLookAndFeel()
-  : sharedLookAndFeel (new SharedResourcePointer<CustomLookAndFeel_Shared>),
-    lf (&(**sharedLookAndFeel).laf)
+SharedLookAndFeelSetup::SharedLookAndFeelSetup ()
+  : sharedLookAndFeel (new SharedResourcePointer<SharedLookAndFeel>),
+    lf ((**sharedLookAndFeel).getCurrentLookAndFeel())
 {
-    
+}
+
+SharedLookAndFeelSetup::~SharedLookAndFeelSetup()
+{
 }

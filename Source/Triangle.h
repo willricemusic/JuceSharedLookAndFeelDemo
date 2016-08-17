@@ -16,7 +16,7 @@
 
 //==============================================================================
 class Triangle    : public Component,
-                    public SharedLookAndFeel
+                    public SharedLookAndFeelSetup
 {
 public:
     Triangle();

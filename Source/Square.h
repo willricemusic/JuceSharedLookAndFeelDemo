@@ -16,7 +16,7 @@
 
 //==============================================================================
 class Square      : public Component,
-                    public SharedLookAndFeel
+                    public SharedLookAndFeelSetup
 {
 public:
     Square();

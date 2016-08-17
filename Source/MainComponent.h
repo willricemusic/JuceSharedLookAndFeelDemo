@@ -19,7 +19,8 @@
 
 
 class MainContentComponent   : public Component,
-                               public SharedLookAndFeel
+                               public SharedLookAndFeelSetup,
+                               private ComboBox::Listener
 {
 public:
     //==============================================================================
@@ -33,7 +34,11 @@ private:
     Circle circle;
     Triangle triangle;
     Square square;
-
+    
+    ComboBox lafBox;
+    
+    void comboBoxChanged (ComboBox* comboBoxThatHasChanged) override;
+    
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainContentComponent)
 };
 

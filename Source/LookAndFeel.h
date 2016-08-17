@@ -36,6 +36,9 @@ struct CustomLookAndFeel_Outline  : public CustomLookAndFeel
         setColour (Circle::strokeColourId,  Colours::teal);
         setColour (Triangle::strokeColourId, Colours::green);
         setColour (Square::strokeColourId,  Colours::blue);
+        setColour (Circle::fillColourId,  Colours::purple);
+        setColour (Triangle::fillColourId, Colours::turquoise);
+        setColour (Square::fillColourId,  Colours::orange);
     }
     
     void drawCircle (Graphics& g, Circle& circle) override
@@ -85,6 +88,9 @@ struct CustomLookAndFeel_Flat     : public CustomLookAndFeel
         setColour (Circle::fillColourId,  Colours::purple);
         setColour (Triangle::fillColourId, Colours::turquoise);
         setColour (Square::fillColourId,  Colours::orange);
+        setColour (Circle::strokeColourId,  Colours::teal);
+        setColour (Triangle::strokeColourId, Colours::green);
+        setColour (Square::strokeColourId,  Colours::blue);
     }
     
     void drawCircle (Graphics& g, Circle& circle) override
@@ -127,9 +133,60 @@ struct CustomLookAndFeel_Flat     : public CustomLookAndFeel
 //==============================================================================
 /** The shared look and feel object
 */
-struct CustomLookAndFeel_Shared
+class SharedLookAndFeel
 {
-    CustomLookAndFeel_Flat laf;
+public:
+    SharedLookAndFeel()
+      : currentLookAndFeel (0)
+    {
+        addLookAndFeel (new CustomLookAndFeel_Flat(), "Flat", true);
+        addLookAndFeel (new CustomLookAndFeel_Outline(), "Outlines");
+    }
+
+    void registerComponent (Component* component)
+    {
+        components.add (component);
+        component->setLookAndFeel (getCurrentLookAndFeel());
+        std::cout << "There are " << components.size() << " registered components" << std::endl;
+    }
+    
+    void deregisterComponent (Component* component)
+    {
+        components.remove (&component);
+    }
+    
+    CustomLookAndFeel* getCurrentLookAndFeel()
+    {
+        return lookAndFeels[currentLookAndFeel];
+    }
+    
+    void setAllLookAndFeels (const int lookAndFeelIndex)
+    {
+        jassert (lookAndFeelIndex >= 0 && lookAndFeelIndex < lookAndFeels.size());
+        
+        currentLookAndFeel = lookAndFeelIndex;
+        std::cout << "The current laf index is " << currentLookAndFeel << std::endl;
+        
+        for (int i = 0; i < components.size(); i++)
+        {
+            components[i]->setLookAndFeel (getCurrentLookAndFeel());
+        }
+    }
+    
+private:
+    OwnedArray<CustomLookAndFeel> lookAndFeels;
+    StringArray lookAndFeelNames;
+    Array<Component*> components;
+    int currentLookAndFeel;
+    
+    void addLookAndFeel (CustomLookAndFeel* laf, const String& name, bool isDefault = false)
+    {
+        lookAndFeels.add (laf);
+        lookAndFeelNames.add (name);
+        
+        if (isDefault)
+            currentLookAndFeel = lookAndFeels.size() - 1;
+    }
 };
 
 #endif  // LOOKANDFEEL_H_INCLUDED

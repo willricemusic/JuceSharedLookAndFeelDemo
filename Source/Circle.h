@@ -16,7 +16,7 @@
 
 //==============================================================================
 class Circle      : public Component,
-                    public SharedLookAndFeel
+                    public SharedLookAndFeelSetup
 {
 public:
     Circle();

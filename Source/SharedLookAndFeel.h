@@ -15,23 +15,24 @@
 
 //========================== forward declarations ==============================
 
-struct CustomLookAndFeel_Shared;
 struct CustomLookAndFeel;
+struct SharedLookAndFeel;
 
 //==============================================================================
 /** 
 */
-class SharedLookAndFeel
+class SharedLookAndFeelSetup
 {
 public:
-    SharedLookAndFeel();
+    SharedLookAndFeelSetup();
+    ~SharedLookAndFeelSetup();
 
 protected:
-    ScopedPointer<SharedResourcePointer<CustomLookAndFeel_Shared>> sharedLookAndFeel;
+    ScopedPointer<SharedResourcePointer<SharedLookAndFeel>> sharedLookAndFeel;
     CustomLookAndFeel* lf;
     
 private:
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SharedLookAndFeel)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SharedLookAndFeelSetup)
 };
 
 #endif  // SHAREDLOOKANDFEEL_H_INCLUDED

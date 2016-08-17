@@ -15,15 +15,17 @@
 //==============================================================================
 Square::Square()
 {
-    setLookAndFeel (lf);
+    (**sharedLookAndFeel).registerComponent (static_cast<Component*>(this));
     setSize (100, 100);
 }
 
 Square::~Square()
 {
+    (**sharedLookAndFeel).deregisterComponent (static_cast<Component*>(this));
 }
 
 void Square::paint (Graphics& g)
 {
-    lf->drawSquare (g, *this);
+    //lf->drawSquare (g, *this);
+    (**sharedLookAndFeel).getCurrentLookAndFeel()->drawSquare (g, *this);
 }

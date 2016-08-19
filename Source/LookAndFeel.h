@@ -33,9 +33,17 @@ struct CustomLookAndFeel_Outline  : public CustomLookAndFeel
 {
     CustomLookAndFeel_Outline()
     {
-        setColour (Circle::strokeColourId,  Colours::teal);
-        setColour (Triangle::strokeColourId, Colours::green);
-        setColour (Square::strokeColourId,  Colours::blue);
+        setColour (Circle::strokeColourId,                      Colours::teal);
+        setColour (Triangle::strokeColourId,                    Colours::green);
+        setColour (Square::strokeColourId,                      Colours::blue);
+        
+        setColour (ComboBox::outlineColourId,                   Colours::white);
+        setColour (ComboBox::arrowColourId,                     Colours::white);
+        setColour (ComboBox::textColourId,                      Colours::white);
+        
+        setColour (PopupMenu::backgroundColourId,               Colours::grey);
+        setColour (PopupMenu::highlightedBackgroundColourId,    Colours::white);
+        setColour (PopupMenu::highlightedTextColourId,          Colours::black);
     }
     
     void drawCircle (Graphics& g, Circle& circle) override
@@ -73,6 +81,28 @@ struct CustomLookAndFeel_Outline  : public CustomLookAndFeel
         g.setColour (square.findColour (Square::strokeColourId));
         g.drawRect (r, 5);
     }
+    
+    void drawComboBox (Graphics& g, int width, int height, const bool /*isButtonDown*/,
+                       int buttonX, int buttonY, int buttonW, int buttonH, ComboBox& box) override
+    {
+        g.setColour (box.findColour (ComboBox::outlineColourId));
+        g.drawRect (0, 0, width, height, 1);
+
+        const float arrowX = 0.3f;
+        const float arrowH = 0.2f;
+
+        Path p;
+        p.addTriangle (buttonX + buttonW * 0.5f,            buttonY + buttonH * (0.45f - arrowH),
+                       buttonX + buttonW * (1.0f - arrowX), buttonY + buttonH * 0.45f,
+                       buttonX + buttonW * arrowX,          buttonY + buttonH * 0.45f);
+
+        p.addTriangle (buttonX + buttonW * 0.5f,            buttonY + buttonH * (0.55f + arrowH),
+                       buttonX + buttonW * (1.0f - arrowX), buttonY + buttonH * 0.55f,
+                       buttonX + buttonW * arrowX,          buttonY + buttonH * 0.55f);
+
+        g.setColour (box.findColour (ComboBox::arrowColourId).withMultipliedAlpha (box.isEnabled() ? 1.0f : 0.3f));
+        g.strokePath (p, PathStrokeType (1));
+    }
 };
 
 //==============================================================================
@@ -82,9 +112,9 @@ struct CustomLookAndFeel_Flat     : public CustomLookAndFeel
 {
     CustomLookAndFeel_Flat()
     {
-        setColour (Circle::fillColourId,  Colours::purple);
-        setColour (Triangle::fillColourId, Colours::turquoise);
-        setColour (Square::fillColourId,  Colours::orange);
+        setColour (Circle::fillColourId,    Colours::purple);
+        setColour (Triangle::fillColourId,  Colours::turquoise);
+        setColour (Square::fillColourId,    Colours::orange);
     }
     
     void drawCircle (Graphics& g, Circle& circle) override
@@ -122,6 +152,27 @@ struct CustomLookAndFeel_Flat     : public CustomLookAndFeel
         g.setColour (square.findColour (Square::fillColourId));
         g.fillRect (r);
     }
+    
+    void drawComboBox (Graphics& g, int width, int height, const bool /*isButtonDown*/,
+                       int buttonX, int buttonY, int buttonW, int buttonH, ComboBox& box) override
+    {
+        g.fillAll (box.findColour (ComboBox::backgroundColourId));
+
+        const float arrowX = 0.3f;
+        const float arrowH = 0.2f;
+
+        Path p;
+        p.addTriangle (buttonX + buttonW * 0.5f,            buttonY + buttonH * (0.45f - arrowH),
+                       buttonX + buttonW * (1.0f - arrowX), buttonY + buttonH * 0.45f,
+                       buttonX + buttonW * arrowX,          buttonY + buttonH * 0.45f);
+
+        p.addTriangle (buttonX + buttonW * 0.5f,            buttonY + buttonH * (0.55f + arrowH),
+                       buttonX + buttonW * (1.0f - arrowX), buttonY + buttonH * 0.55f,
+                       buttonX + buttonW * arrowX,          buttonY + buttonH * 0.55f);
+
+        g.setColour (box.findColour (ComboBox::arrowColourId).withMultipliedAlpha (box.isEnabled() ? 1.0f : 0.3f));
+        g.fillPath (p);
+    }
 };
 
 //==============================================================================
@@ -131,7 +182,6 @@ class SharedLookAndFeel
 {
 public:
     SharedLookAndFeel()
-      : currentLookAndFeelIndex (0)
     {
         addLookAndFeel (new CustomLookAndFeel_Flat(), "Flat");
         addLookAndFeel (new CustomLookAndFeel_Outline(), "Outlines", true);
@@ -183,6 +233,9 @@ private:
     
     void addLookAndFeel (CustomLookAndFeel* laf, const String& name, bool isDefault = false)
     {
+        if (lookAndFeels.size() == 0)
+                currentLookAndFeelIndex = 0;
+        
         lookAndFeels.add (laf);
         lookAndFeelNames.add (name);
         

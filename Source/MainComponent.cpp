@@ -15,21 +15,19 @@
 //==============================================================================
 MainContentComponent::MainContentComponent()
 {
-    (**sharedLookAndFeel).registerComponent (static_cast<Component*>(this));
     setSize (600, 400);
     addAndMakeVisible (circle);
     addAndMakeVisible (triangle);
     addAndMakeVisible (square);
     
-    lafBox.addItemList ((**sharedLookAndFeel).getLookAndFeelNames(), 1);
-    lafBox.setSelectedItemIndex ((**sharedLookAndFeel).getCurrentLookAndFeelIndex());
+    lafBox.addItemList (getSharedLookAndFeel().getLookAndFeelNames(), 1);
+    lafBox.setSelectedItemIndex (getSharedLookAndFeel().getCurrentLookAndFeelIndex());
     lafBox.addListener (this);
     addAndMakeVisible (lafBox);
 }
 
 MainContentComponent::~MainContentComponent()
 {
-    (**sharedLookAndFeel).deregisterComponent (static_cast<Component*>(this));
 }
 
 void MainContentComponent::paint (Graphics& g)
@@ -54,5 +52,5 @@ void MainContentComponent::resized()
 void MainContentComponent::comboBoxChanged (ComboBox* comboBoxThatHasChanged)
 {
     if (comboBoxThatHasChanged == &lafBox)
-        (**sharedLookAndFeel).setAllLookAndFeels (lafBox.getSelectedItemIndex());
+        getSharedLookAndFeel().setAllLookAndFeels (lafBox.getSelectedItemIndex());
 }

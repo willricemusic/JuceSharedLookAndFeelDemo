@@ -12,15 +12,14 @@
 #define TRIANGLE_H_INCLUDED
 
 #include "../JuceLibraryCode/JuceHeader.h"
-#include "SharedLookAndFeel.h"
+#include "SharedLookAndFeelComponent.h"
 
 //==============================================================================
-class Triangle    : public Component,
-                    public SharedLookAndFeelSetup
+class Triangle    : public SharedLookAndFeelComponent
 {
 public:
     Triangle();
-    ~Triangle();
+    ~Triangle() {}
     
     enum ColourIds
     {

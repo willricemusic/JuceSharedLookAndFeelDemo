@@ -12,15 +12,14 @@
 #define SQUARE_H_INCLUDED
 
 #include "../JuceLibraryCode/JuceHeader.h"
-#include "SharedLookAndFeel.h"
+#include "SharedLookAndFeelComponent.h"
 
 //==============================================================================
-class Square      : public Component,
-                    public SharedLookAndFeelSetup
+class Square      : public SharedLookAndFeelComponent
 {
 public:
     Square();
-    ~Square();
+    ~Square() {}
     
     enum ColourIds
     {

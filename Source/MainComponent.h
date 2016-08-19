@@ -12,14 +12,13 @@
 #define MAINCOMPONENT_H_INCLUDED
 
 #include "../JuceLibraryCode/JuceHeader.h"
-#include "SharedLookAndFeel.h"
+#include "SharedLookAndFeelComponent.h"
 #include "Circle.h"
 #include "Triangle.h"
 #include "Square.h"
 
 
-class MainContentComponent   : public Component,
-                               public SharedLookAndFeelSetup,
+class MainContentComponent   : public SharedLookAndFeelComponent,
                                private ComboBox::Listener
 {
 public:

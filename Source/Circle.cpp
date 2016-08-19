@@ -15,17 +15,10 @@
 //==============================================================================
 Circle::Circle()
 {
-    (**sharedLookAndFeel).registerComponent (static_cast<Component*>(this));
     setSize (100, 100);
-}
-
-Circle::~Circle()
-{
-    (**sharedLookAndFeel).deregisterComponent (static_cast<Component*>(this));
 }
 
 void Circle::paint (Graphics& g)
 {
-    //lf->drawCircle (g, *this);
-    (**sharedLookAndFeel).getCurrentLookAndFeel()->drawCircle (g, *this);
+    getLookAndFeel().drawCircle (g, *this);
 }

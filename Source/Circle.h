@@ -12,15 +12,14 @@
 #define CIRCLE_H_INCLUDED
 
 #include "../JuceLibraryCode/JuceHeader.h"
-#include "SharedLookAndFeel.h"
+#include "SharedLookAndFeelComponent.h"
 
 //==============================================================================
-class Circle      : public Component,
-                    public SharedLookAndFeelSetup
+class Circle      : public SharedLookAndFeelComponent
 {
 public:
     Circle();
-    ~Circle();
+    ~Circle() {}
     
     enum ColourIds
     {

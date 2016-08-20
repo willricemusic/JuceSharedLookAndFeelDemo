@@ -2,7 +2,6 @@
   ==============================================================================
 
     MainComponent.h
-    Created: 15 Aug 2016 5:03:26pm
     Author:  Will Rice
 
   ==============================================================================
@@ -12,13 +11,13 @@
 #define MAINCOMPONENT_H_INCLUDED
 
 #include "../JuceLibraryCode/JuceHeader.h"
-#include "SharedLookAndFeelComponent.h"
+#include "SharedLookAndFeel.h"
 #include "Circle.h"
 #include "Triangle.h"
 #include "Square.h"
 
 
-class MainContentComponent   : public SharedLookAndFeelComponent<Component>,
+class MainContentComponent   : public WithSharedLookAndFeel<Component>,
                                private ComboBox::Listener
 {
 public:

@@ -1,38 +1,41 @@
-///*
-//  ==============================================================================
-//
-//    SharedLookAndFeel.h
-//    Created: 15 Aug 2016 5:03:26pm
-//    Author:  Will Rice
-//
-//  ==============================================================================
-//*/
-//
-//#ifndef SHAREDLOOKANDFEEL_H_INCLUDED
-//#define SHAREDLOOKANDFEEL_H_INCLUDED
-//
-//#include "../JuceLibraryCode/JuceHeader.h"
-//
-////========================== forward declarations ==============================
-//
-//struct CustomLookAndFeel;
-//struct SharedLookAndFeel;
-//
-////==============================================================================
-///** 
-//*/
-//class SharedLookAndFeelSetup
-//{
-//public:
-//    SharedLookAndFeelSetup();
-//    ~SharedLookAndFeelSetup();
-//
-//protected:
-//    ScopedPointer<SharedResourcePointer<SharedLookAndFeel>> sharedLookAndFeel;
-//    CustomLookAndFeel* lf;
-//    
-//private:
-//    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SharedLookAndFeelSetup)
-//};
-//
-//#endif  // SHAREDLOOKANDFEEL_H_INCLUDED
+/*
+  ==============================================================================
+
+    SharedLookAndFeel.h
+    Author:  Will Rice
+
+  ==============================================================================
+*/
+
+#ifndef SHAREDLOOKANDFEELCOMPONENT_H_INCLUDED
+#define SHAREDLOOKANDFEELCOMPONENT_H_INCLUDED
+
+#include "../JuceLibraryCode/JuceHeader.h"
+
+//========================== forward declarations ==============================
+
+struct CustomLookAndFeel;
+struct SharedLookAndFeel;
+
+//==============================================================================
+/** 
+*/
+template <typename ComponentType>
+class WithSharedLookAndFeel  : public ComponentType
+{
+public:
+    WithSharedLookAndFeel (const String& componentName = String::empty);
+    ~WithSharedLookAndFeel();
+    
+    CustomLookAndFeel& getLookAndFeel() const;
+    SharedLookAndFeel& getSharedLookAndFeel() const;
+    
+private:
+    ScopedPointer<SharedResourcePointer<SharedLookAndFeel>> sharedLookAndFeel;
+    
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (WithSharedLookAndFeel<ComponentType>)
+};
+
+
+
+#endif  // SHAREDLOOKANDFEELCOMPONENT_H_INCLUDED

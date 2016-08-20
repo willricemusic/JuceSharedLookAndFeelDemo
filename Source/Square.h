@@ -2,7 +2,6 @@
   ==============================================================================
 
     Square.h
-    Created: 12 Aug 2016 11:00:51pm
     Author:  Will Rice
 
   ==============================================================================
@@ -12,10 +11,10 @@
 #define SQUARE_H_INCLUDED
 
 #include "../JuceLibraryCode/JuceHeader.h"
-#include "SharedLookAndFeelComponent.h"
+#include "SharedLookAndFeel.h"
 
 //==============================================================================
-class Square      : public SharedLookAndFeelComponent<Component>
+class Square      : public WithSharedLookAndFeel<Component>
 {
 public:
     Square();

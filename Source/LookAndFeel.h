@@ -2,7 +2,6 @@
   ==============================================================================
 
     LookAndFeel.h
-    Created: 15 Aug 2016 5:03:26pm
     Author:  Will Rice
 
   ==============================================================================
@@ -183,6 +182,9 @@ class SharedLookAndFeel
 public:
     SharedLookAndFeel()
     {
+        /** Add your CustomLookAndFeel instances here.
+            Use the 'isDefault' flag to set a default LAF
+        */
         addLookAndFeel (new CustomLookAndFeel_Flat(), "Flat");
         addLookAndFeel (new CustomLookAndFeel_Outline(), "Outlines", true);
     }

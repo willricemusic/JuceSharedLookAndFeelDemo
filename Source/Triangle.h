@@ -2,7 +2,6 @@
   ==============================================================================
 
     Triangle.h
-    Created: 12 Aug 2016 11:00:58pm
     Author:  Will Rice
 
   ==============================================================================
@@ -12,10 +11,10 @@
 #define TRIANGLE_H_INCLUDED
 
 #include "../JuceLibraryCode/JuceHeader.h"
-#include "SharedLookAndFeelComponent.h"
+#include "SharedLookAndFeel.h"
 
 //==============================================================================
-class Triangle    : public SharedLookAndFeelComponent<Component>
+class Triangle    : public WithSharedLookAndFeel<Component>
 {
 public:
     Triangle();

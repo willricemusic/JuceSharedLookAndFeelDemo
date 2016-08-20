@@ -2,7 +2,6 @@
   ==============================================================================
 
     Circle.h
-    Created: 12 Aug 2016 11:00:43pm
     Author:  Will Rice
 
   ==============================================================================
@@ -12,10 +11,10 @@
 #define CIRCLE_H_INCLUDED
 
 #include "../JuceLibraryCode/JuceHeader.h"
-#include "SharedLookAndFeelComponent.h"
+#include "SharedLookAndFeel.h"
 
 //==============================================================================
-class Circle      : public SharedLookAndFeelComponent<Component>
+class Circle      : public WithSharedLookAndFeel<Component>
 {
 public:
     Circle();

@@ -11,7 +11,7 @@
 #define MAINCOMPONENT_H_INCLUDED
 
 #include "../JuceLibraryCode/JuceHeader.h"
-#include "SharedLookAndFeel.h"
+#include "WithSharedLookAndFeel.h"
 #include "CustomComponents/Circle.h"
 #include "CustomComponents/Triangle.h"
 #include "CustomComponents/Square.h"

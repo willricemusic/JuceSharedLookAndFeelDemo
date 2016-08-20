@@ -15,10 +15,10 @@
         <FILE id="GkogGv" name="Triangle.h" compile="0" resource="0" file="Source/CustomComponents/Triangle.h"/>
       </GROUP>
       <FILE id="zugMP5" name="LookAndFeel.h" compile="0" resource="0" file="Source/LookAndFeel.h"/>
-      <FILE id="LkMk9c" name="SharedLookAndFeel.cpp" compile="1" resource="0"
-            file="Source/SharedLookAndFeel.cpp"/>
-      <FILE id="lxpZuC" name="SharedLookAndFeel.h" compile="0" resource="0"
-            file="Source/SharedLookAndFeel.h"/>
+      <FILE id="LkMk9c" name="WithSharedLookAndFeel.cpp" compile="1" resource="0"
+            file="Source/WithSharedLookAndFeel.cpp"/>
+      <FILE id="lxpZuC" name="WithSharedLookAndFeel.h" compile="0" resource="0"
+            file="Source/WithSharedLookAndFeel.h"/>
       <FILE id="v2GM6e" name="MainComponent.cpp" compile="1" resource="0"
             file="Source/MainComponent.cpp"/>
       <FILE id="NTsnLK" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>

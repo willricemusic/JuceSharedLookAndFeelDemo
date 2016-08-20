@@ -7,7 +7,7 @@
   ==============================================================================
 */
 
-#include "SharedLookAndFeel.h"
+#include "WithSharedLookAndFeel.h"
 #include "LookAndFeel.h"
 
 template <typename ComponentType>

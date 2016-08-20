@@ -11,7 +11,7 @@
 #define TRIANGLE_H_INCLUDED
 
 #include "../JuceLibraryCode/JuceHeader.h"
-#include "../SharedLookAndFeel.h"
+#include "../WithSharedLookAndFeel.h"
 
 //==============================================================================
 class Triangle    : public WithSharedLookAndFeel<Component>

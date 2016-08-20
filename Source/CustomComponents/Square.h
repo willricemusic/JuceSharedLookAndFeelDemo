@@ -11,7 +11,7 @@
 #define SQUARE_H_INCLUDED
 
 #include "../JuceLibraryCode/JuceHeader.h"
-#include "../SharedLookAndFeel.h"
+#include "../WithSharedLookAndFeel.h"
 
 //==============================================================================
 class Square      : public WithSharedLookAndFeel<Component>

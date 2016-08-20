@@ -12,9 +12,9 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "SharedLookAndFeel.h"
-#include "Circle.h"
-#include "Triangle.h"
-#include "Square.h"
+#include "CustomComponents/Circle.h"
+#include "CustomComponents/Triangle.h"
+#include "CustomComponents/Square.h"
 
 
 class MainContentComponent   : public WithSharedLookAndFeel<Component>,

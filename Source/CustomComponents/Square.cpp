@@ -9,7 +9,7 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "Square.h"
-#include "LookAndFeel.h"
+#include "../LookAndFeel.h"
 
 //==============================================================================
 Square::Square()

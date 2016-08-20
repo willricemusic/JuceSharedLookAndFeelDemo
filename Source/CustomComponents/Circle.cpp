@@ -9,7 +9,7 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "Circle.h"
-#include "LookAndFeel.h"
+#include "../LookAndFeel.h"
 
 //==============================================================================
 Circle::Circle()

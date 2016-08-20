@@ -1,42 +1,42 @@
 /*
   ==============================================================================
 
-    Square.h
+    Triangle.h
     Author:  Will Rice
 
   ==============================================================================
 */
 
-#ifndef SQUARE_H_INCLUDED
-#define SQUARE_H_INCLUDED
+#ifndef TRIANGLE_H_INCLUDED
+#define TRIANGLE_H_INCLUDED
 
 #include "../JuceLibraryCode/JuceHeader.h"
-#include "SharedLookAndFeel.h"
+#include "../SharedLookAndFeel.h"
 
 //==============================================================================
-class Square      : public WithSharedLookAndFeel<Component>
+class Triangle    : public WithSharedLookAndFeel<Component>
 {
 public:
-    Square();
-    ~Square() {}
+    Triangle();
+    ~Triangle() {}
     
     enum ColourIds
     {
-        fillColourId        = 0x2002000,
-        strokeColourId      = 0x2002010
+        fillColourId        = 0x2001000,
+        strokeColourId      = 0x2001010
     };
     
     struct LookAndFeelMethods
     {
         virtual ~LookAndFeelMethods() {}
-        virtual void drawSquare (Graphics&, Square&) = 0;
+        virtual void drawTriangle (Graphics&, Triangle&) = 0;
     };
 
     void paint (Graphics& g);
 
 private:
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Square)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Triangle)
 };
 
 
-#endif  // SQUARE_H_INCLUDED
+#endif  // TRIANGLE_H_INCLUDED

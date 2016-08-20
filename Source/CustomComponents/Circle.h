@@ -11,7 +11,7 @@
 #define CIRCLE_H_INCLUDED
 
 #include "../JuceLibraryCode/JuceHeader.h"
-#include "SharedLookAndFeel.h"
+#include "../SharedLookAndFeel.h"
 
 //==============================================================================
 class Circle      : public WithSharedLookAndFeel<Component>

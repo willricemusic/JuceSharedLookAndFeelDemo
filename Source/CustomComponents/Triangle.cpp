@@ -9,7 +9,7 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "Triangle.h"
-#include "LookAndFeel.h"
+#include "../LookAndFeel.h"
 
 //==============================================================================
 Triangle::Triangle()

@@ -11,9 +11,9 @@
 #define LOOKANDFEEL_H_INCLUDED
 
 #include "../JuceLibraryCode/JuceHeader.h"
-#include "Circle.h"
-#include "Triangle.h"
-#include "Square.h"
+#include "CustomComponents/Circle.h"
+#include "CustomComponents/Triangle.h"
+#include "CustomComponents/Square.h"
 
 //==============================================================================
 /** An abstract base class from which the app's LookAndFeels will inherit

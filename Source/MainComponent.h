@@ -18,7 +18,7 @@
 #include "Square.h"
 
 
-class MainContentComponent   : public SharedLookAndFeelComponent,
+class MainContentComponent   : public SharedLookAndFeelComponent<Component>,
                                private ComboBox::Listener
 {
 public:

@@ -15,7 +15,7 @@
 #include "SharedLookAndFeelComponent.h"
 
 //==============================================================================
-class Square      : public SharedLookAndFeelComponent
+class Square      : public SharedLookAndFeelComponent<Component>
 {
 public:
     Square();

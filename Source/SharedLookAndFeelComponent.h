@@ -21,7 +21,8 @@ struct SharedLookAndFeel;
 //==============================================================================
 /** 
 */
-class SharedLookAndFeelComponent  : public Component
+template <typename ComponentType>
+class SharedLookAndFeelComponent  : public ComponentType
 {
 public:
     SharedLookAndFeelComponent();
@@ -33,7 +34,7 @@ public:
 private:
     ScopedPointer<SharedResourcePointer<SharedLookAndFeel>> sharedLookAndFeel;
     
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SharedLookAndFeelComponent)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SharedLookAndFeelComponent<ComponentType>)
 };
 
 

@@ -15,7 +15,7 @@
 #include "SharedLookAndFeelComponent.h"
 
 //==============================================================================
-class Triangle    : public SharedLookAndFeelComponent
+class Triangle    : public SharedLookAndFeelComponent<Component>
 {
 public:
     Triangle();

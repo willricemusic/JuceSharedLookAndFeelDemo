@@ -15,7 +15,7 @@
 #include "SharedLookAndFeelComponent.h"
 
 //==============================================================================
-class Circle      : public SharedLookAndFeelComponent
+class Circle      : public SharedLookAndFeelComponent<Component>
 {
 public:
     Circle();

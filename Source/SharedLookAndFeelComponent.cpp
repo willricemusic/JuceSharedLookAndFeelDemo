@@ -11,23 +11,30 @@
 #include "SharedLookAndFeelComponent.h"
 #include "LookAndFeel.h"
 
-SharedLookAndFeelComponent::SharedLookAndFeelComponent()
+template <typename ComponentType>
+SharedLookAndFeelComponent<ComponentType>::SharedLookAndFeelComponent()
   : sharedLookAndFeel (new SharedResourcePointer<SharedLookAndFeel>)
 {
     (**sharedLookAndFeel).registerComponent (this);
 }
-    
-SharedLookAndFeelComponent::~SharedLookAndFeelComponent()
+
+template <typename ComponentType>
+SharedLookAndFeelComponent<ComponentType>::~SharedLookAndFeelComponent()
 {
     (**sharedLookAndFeel).deregisterComponent (this);
 }
-    
-CustomLookAndFeel& SharedLookAndFeelComponent::getLookAndFeel() const
+
+template <typename ComponentType>
+CustomLookAndFeel& SharedLookAndFeelComponent<ComponentType>::getLookAndFeel() const
 {
     return *((**sharedLookAndFeel).getCurrentLookAndFeel());
 }
 
-SharedLookAndFeel& SharedLookAndFeelComponent::getSharedLookAndFeel() const
+template <typename ComponentType>
+SharedLookAndFeel& SharedLookAndFeelComponent<ComponentType>::getSharedLookAndFeel() const
 {
     return (**sharedLookAndFeel);
 }
+
+template class SharedLookAndFeelComponent<Component>;
+/** List Component sub-types here? */

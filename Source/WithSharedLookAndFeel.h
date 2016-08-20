@@ -37,5 +37,4 @@ private:
 };
 
 
-
 #endif  // SHAREDLOOKANDFEELCOMPONENT_H_INCLUDED

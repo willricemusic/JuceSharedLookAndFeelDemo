@@ -38,14 +38,15 @@ SharedLookAndFeel& WithSharedLookAndFeel<ComponentType>::getSharedLookAndFeel() 
 
 template class WithSharedLookAndFeel<Component>;
 
-/** List Component sub-types here */
+/** Add to the list below any classes derived from Component which you want
+    to use with a SharedLookAndFeel inside the Projucer.
+
+    NOTE: The child class MUST have a default constructor. Without a default
+    constructor it is impossible for the Projucer to instantiate the component
+    in isolation.
+*/
+
 template class WithSharedLookAndFeel<Button>;
-//template class WithSharedLookAndFeel<ArrowButton>;
-//template class WithSharedLookAndFeel<DrawableButton>;
-//template class WithSharedLookAndFeel<HyperlinkButton>;
 template class WithSharedLookAndFeel<ImageButton>;
-//template class WithSharedLookAndFeel<ShapeButton>;
-template class WithSharedLookAndFeel<ToggleButton>;
-
 template class WithSharedLookAndFeel<Slider>;
-
+template class WithSharedLookAndFeel<ToggleButton>;
